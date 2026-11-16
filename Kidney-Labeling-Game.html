@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Kidney Anatomy · Label Lab</title><style>
+:root{color-scheme:light;--ink:#213147;--blue:#1769b2;--border:#dce5f0}*{box-sizing:border-box}body{margin:0;background:#f2f6fb;color:var(--ink);font:15px/1.5 system-ui,Arial,sans-serif}main{max-width:1350px;margin:auto;padding:30px 25px}header{display:flex;justify-content:space-between;align-items:center;gap:20px;margin-bottom:24px}.eyebrow{font-size:11px;letter-spacing:2px;color:#6080a3;font-weight:800}h1{font-size:30px;letter-spacing:-1px;margin:5px 0}header p{margin:0;color:#63758b;font-size:14px}.score{white-space:nowrap;text-align:right}.score strong{font-size:27px;color:var(--blue)}.layout{display:grid;grid-template-columns:240px 1fr;gap:20px}.bank,.canvas{background:#fff;border:1px solid var(--border);border-radius:16px}.bank{padding:20px}.bank h2{font-size:15px;margin:0 0 4px}.bank p{font-size:12px;color:#71839b;margin:0 0 15px}.labels{display:grid;gap:9px}.label{border:1px solid #c8daee;border-radius:7px;padding:10px 12px;background:#edf4fe;color:#174775;text-align:left;font:600 13px system-ui;cursor:grab;display:flex;align-items:center;gap:10px;min-height:41px}.label .grip{color:#90a9c3;letter-spacing:-3px}.label.selected{outline:3px solid #2b80cf;background:#deedff}.label.used{opacity:.4;cursor:default}.label:disabled{color:#174775;-webkit-text-fill-color:currentColor}.canvas{overflow:hidden;padding:15px 10px}.canvas svg{display:block;width:100%;height:auto}.slot{cursor:pointer;outline:none}.slot rect{fill:#edf3fc;stroke:#c7d8ec;stroke-width:1.5;transition:fill .2s}.slot text{font:600 14px system-ui;fill:#2c4c72;pointer-events:none}.slot:hover rect,.slot:focus rect,.slot.over rect{fill:#dcecff;stroke:#1769b2;stroke-width:2.5}.slot.filled rect{fill:#dcecff;stroke:#80acdc}.slot.correct rect{fill:#e4f6e8;stroke:#359b57}.slot.correct text{fill:#216b38}.slot.incorrect rect{fill:#fff0ed;stroke:#d16f62}.slot.incorrect text{fill:#9c362b}.leader{fill:none;stroke:#596b7c;stroke-width:1.5;stroke-linecap:round}.tip{fill:#fff;stroke:#425d74;stroke-width:1.4}.controls{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:20px}button.action{border:1px solid var(--border);border-radius:8px;background:#fff;color:var(--ink);font:600 13px system-ui;padding:11px 17px;cursor:pointer}button.primary{background:var(--blue);color:#fff;border-color:var(--blue)}button:focus-visible{outline:3px solid #f2bb53;outline-offset:3px}.message{padding:13px 16px;border-radius:9px;background:#e6eef9;color:#355a82;margin-top:15px;font-size:13px;min-height:46px}.legend{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;font-size:11px;color:#75869c;margin:12px 0 0}.legend i{display:inline-block;height:8px;width:8px;border-radius:50%;margin-right:5px}.footer{font-size:11px;color:#8696aa;margin-top:20px}.review{background:#fff;border:1px solid var(--border);border-radius:12px;padding:18px;margin-top:18px}.review h2{font-size:17px;margin:0 0 12px}.reviewgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px 25px}.reviewgrid p{font-size:12px;margin:0;color:#63758b}.reviewgrid b{display:block;color:#213147}#selectedInfo{margin-top:15px;color:#1769b2;font-weight:600;font-size:12px}[hidden]{display:none!important}@media(max-width:900px){.layout{grid-template-columns:1fr}.bank{padding:15px}.labels{grid-template-columns:repeat(3,1fr);gap:7px}.label{font-size:12px;padding:8px}.bank p{margin-bottom:10px}.canvas{padding:8px 0}main{padding:20px 12px}header{align-items:flex-start}h1{font-size:25px}}@media(max-width:520px){.labels{grid-template-columns:repeat(2,1fr)}header p{font-size:12px}.score{font-size:12px}.score strong{font-size:22px}.reviewgrid{grid-template-columns:1fr}.canvas{overflow-x:auto}.canvas svg{min-width:690px}.scrollnote{display:block!important;font-size:11px;color:#75869c;margin:0 12px 5px}.controls{gap:7px}button.action{padding:10px 12px}}@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style></head><body><main><header><div><div class="eyebrow">ANATOMY · LABEL LAB</div><h1>Inside the kidney</h1><p>Match all 11 structures. Drag a label or select one, then click a blank.</p></div><div class="score"><strong id="placed">0 / 11</strong><br><span id="scoreText">labels placed</span></div></header>
+<div class="layout"><aside class="bank"><h2>Label bank</h2><p>Click a filled blank to return its label.</p><div class="labels" id="labels"></div><div id="selectedInfo" aria-live="polite">Choose a label to begin.</div></aside><section class="canvas" aria-label="Kidney labeling diagram"><p class="scrollnote" style="display:none">Swipe the diagram sideways to see all blanks.</p>
+<svg id="diagram" viewBox="0 0 1000 610" role="group" aria-label="Simplified kidney cross-section with eleven labeling targets">
+<defs><linearGradient id="cortex" x1="0" x2="1"><stop stop-color="#f4aa85"/><stop offset=".6" stop-color="#f7bc92"/><stop offset="1" stop-color="#ed9378"/></linearGradient><linearGradient id="pyramid"><stop stop-color="#ce5d5a"/><stop offset="1" stop-color="#e9846b"/></linearGradient><linearGradient id="vein" x1="0" x2="0" y2="1"><stop stop-color="#50abd9"/><stop offset="1" stop-color="#176aab"/></linearGradient><linearGradient id="artery"><stop stop-color="#ee6b62"/><stop offset="1" stop-color="#ba3543"/></linearGradient><linearGradient id="urine"><stop stop-color="#ffe5a0"/><stop offset="1" stop-color="#e3b557"/></linearGradient><pattern id="striations" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(-15)"><path d="M1 0V7" stroke="#9f4b50" stroke-width=".6" opacity=".32"/></pattern></defs>
+<!-- Renal capsule and cortex; concave medial surface opens to the left. -->
+<path d="M490 44C569 15 674 62 716 158C752 240 754 352 715 447C680 531 611 577 535 567C464 557 431 510 432 458C433 415 465 388 477 354C493 313 473 291 455 266C424 221 417 186 427 137C434 94 458 59 490 44Z" fill="url(#cortex)" stroke="#cc6b5c" stroke-width="6"/>
+<path d="M490 44C569 15 674 62 716 158C752 240 754 352 715 447C680 531 611 577 535 567C464 557 431 510 432 458C433 415 465 388 477 354C493 313 473 291 455 266C424 221 417 186 427 137C434 94 458 59 490 44Z" fill="none" stroke="#f9d3b5" stroke-width="13" opacity=".7"/>
+<!-- Individual pyramids, with tips directed toward the renal sinus. -->
+<g fill="url(#pyramid)" stroke="#b95d59" stroke-width="2">
+<path id="p1" d="M476 91Q510 65 545 89Q554 147 524 201Q486 169 476 91Z"/>
+<path d="M568 91Q611 86 645 127Q632 171 560 221Q548 163 568 91Z"/>
+<path d="M659 156Q696 184 704 230Q665 257 596 255Q612 199 659 156Z"/>
+<path d="M710 265Q726 310 710 355Q661 359 603 311Q652 271 710 265Z"/>
+<path d="M699 390Q687 438 650 466Q597 442 575 373Q645 367 699 390Z"/>
+<path d="M619 492Q583 530 545 524Q524 478 539 408Q594 437 619 492Z"/>
+<path d="M516 513Q471 498 463 460Q480 417 514 393Q535 458 516 513Z"/>
+</g>
+<g opacity=".6" fill="url(#striations)"><path d="M476 91Q510 65 545 89Q554 147 524 201Q486 169 476 91Z"/><path d="M568 91Q611 86 645 127Q632 171 560 221Q548 163 568 91Z"/><path d="M659 156Q696 184 704 230Q665 257 596 255Q612 199 659 156Z"/><path d="M710 265Q726 310 710 355Q661 359 603 311Q652 271 710 265Z"/><path d="M699 390Q687 438 650 466Q597 442 575 373Q645 367 699 390Z"/><path d="M619 492Q583 530 545 524Q524 478 539 408Q594 437 619 492Z"/><path d="M516 513Q471 498 463 460Q480 417 514 393Q535 458 516 513Z"/></g>
+<!-- Collecting system: calyces join larger branches and a funnel-shaped pelvis. -->
+<path d="M528 188Q516 207 518 221L534 239L546 218Q549 204 558 211Q571 222 559 238L544 259L556 276L583 251Q594 244 604 252L609 267Q591 279 574 282L565 302L596 299L611 303L607 320Q589 325 568 318L558 337L579 367L582 379L566 387Q550 377 547 354L532 345L535 400L531 414L513 409Q507 391 518 372L514 350L507 377L495 394L480 383Q483 365 498 350L505 330Q484 316 477 333L461 366L451 405L433 401L438 359Q439 335 462 313Q479 294 501 290L523 285L525 263L510 244Q494 219 510 196Z" fill="url(#urine)" stroke="#c29b43" stroke-width="2"/>
+<path d="M451 384Q428 425 427 488L429 533L446 534L444 487Q441 434 465 394Z" fill="url(#urine)" stroke="#c29b43" stroke-width="2"/>
+<!-- Artery and vein enter at the hilum. -->
+<g fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M381 280C435 280 468 279 504 257L535 217" stroke="#a33240" stroke-width="20"/><path d="M381 280C435 280 468 279 504 257L535 217" stroke="url(#artery)" stroke-width="15"/><path d="M488 267Q554 281 613 240M512 250Q558 209 570 150M500 268Q564 334 641 387" stroke="#cc4651" stroke-width="5"/>
+<path d="M376 325C427 326 469 307 516 288L555 244" stroke="#155b94" stroke-width="23"/><path d="M376 325C427 326 469 307 516 288L555 244" stroke="url(#vein)" stroke-width="17"/><path d="M514 290Q585 300 657 297M524 280Q591 248 628 209M505 295Q559 356 612 401" stroke="#257eae" stroke-width="5"/></g>
+<ellipse cx="377" cy="325" rx="7" ry="10" fill="#164f87" stroke="#91c5df" stroke-width="3"/><ellipse cx="382" cy="280" rx="6" ry="8" fill="#8e2938" stroke="#f1a091" stroke-width="2"/>
+<g id="leaders" class="leader"></g><g id="slots"></g>
+</svg><div class="legend"><span><i style="background:#e2997c"></i>Kidney tissue</span><span><i style="background:#e9bc62"></i>Collecting system</span><span><i style="background:#cc4651"></i>Artery</span><span><i style="background:#257eae"></i>Vein</span></div></section></div>
+<div class="controls"><button class="action primary" id="check">Check answers</button><button class="action" id="clearWrong">Clear incorrect</button><button class="action" id="show">Show answers</button><button class="action" id="reset">Start over</button></div><div class="message" id="message" role="status">Place each label at the end of its pointer line. Use every label once.</div><section class="review" id="review" hidden><h2>Structure review</h2><div class="reviewgrid" id="reviewgrid"></div></section><p class="footer">Simplified educational diagram · No downloads or accounts needed to play · Keyboard: select a label with Enter, tab to a blank, then press Enter.</p></main>
+<script>
+const parts=[
+  {
+    "name": "Papilla",
+    "x": 15,
+    "y": 63,
+    "px": 524,
+    "py": 201,
+    "side": "left",
+    "via": "342,83 402,83",
+    "description": "The tip of a renal pyramid, where urine drains into a minor calyx."
+  },
+  {
+    "name": "Renal Artery",
+    "x": 15,
+    "y": 147,
+    "px": 404,
+    "py": 279,
+    "side": "left",
+    "via": "330,167 350,232",
+    "description": "Carries blood into the kidney."
+  },
+  {
+    "name": "Hilum",
+    "x": 15,
+    "y": 231,
+    "px": 459,
+    "py": 306,
+    "side": "left",
+    "via": "337,251 413,251",
+    "description": "The medial opening where vessels and the ureter enter or leave the kidney."
+  },
+  {
+    "name": "Renal Vein",
+    "x": 15,
+    "y": 315,
+    "px": 405,
+    "py": 324,
+    "side": "left",
+    "via": "341,335",
+    "description": "Carries blood out of the kidney."
+  },
+  {
+    "name": "Ureter",
+    "x": 15,
+    "y": 399,
+    "px": 436,
+    "py": 492,
+    "side": "left",
+    "via": "341,419 396,459",
+    "description": "The tube that carries urine from the renal pelvis toward the bladder."
+  },
+  {
+    "name": "Renal Pelvis",
+    "x": 15,
+    "y": 483,
+    "px": 472,
+    "py": 321,
+    "side": "left",
+    "via": "342,503 410,433",
+    "description": "The funnel that receives urine from major calyces and leads to the ureter."
+  },
+  {
+    "name": "Renal Cortex",
+    "x": 768,
+    "y": 73,
+    "px": 674,
+    "py": 143,
+    "side": "right",
+    "via": "749,93 708,93",
+    "description": "The outer tissue layer beneath the renal capsule."
+  },
+  {
+    "name": "Minor Calyx",
+    "x": 768,
+    "y": 174,
+    "px": 601,
+    "py": 259,
+    "side": "right",
+    "via": "749,194 704,211",
+    "description": "A small cup that receives urine from one renal papilla."
+  },
+  {
+    "name": "Renal Pyramid",
+    "x": 768,
+    "y": 275,
+    "px": 665,
+    "py": 307,
+    "side": "right",
+    "via": "750,295",
+    "description": "A triangular region of renal medulla whose tip forms a papilla."
+  },
+  {
+    "name": "Major Calyx",
+    "x": 768,
+    "y": 376,
+    "px": 551,
+    "py": 336,
+    "side": "right",
+    "via": "750,396 659,370",
+    "description": "A larger collecting branch formed by joining minor calyces."
+  },
+  {
+    "name": "Renal Column",
+    "x": 768,
+    "y": 477,
+    "px": 680,
+    "py": 250,
+    "side": "right",
+    "via": "750,497 728,409",
+    "description": "Cortical tissue extending inward between adjacent renal pyramids."
+  }
+];
+const $=id=>document.getElementById(id),ns='http://www.w3.org/2000/svg';let placed=Array(11).fill(null),selected=null,checked=false,revealed=false;
+function svg(tag,attrs){const e=document.createElementNS(ns,tag);for(const[k,v]of Object.entries(attrs))e.setAttribute(k,v);return e}
+parts.forEach((p,i)=>{const from=p.side==='left'?`${p.x+215},${p.y+20}`:`${p.x},${p.y+20}`;const line=svg('polyline',{points:`${from} ${p.via} ${p.px},${p.py}`});$('leaders').append(line);$('leaders').append(svg('circle',{cx:p.px,cy:p.py,r:3.5,class:'tip'}));const g=svg('g',{class:'slot',tabindex:0,role:'button','aria-label':`Blank ${i+1}`,'data-index':i});g.append(svg('rect',{x:p.x,y:p.y,width:215,height:40,rx:8}));const t=svg('text',{x:p.x+107.5,y:p.y+25,'text-anchor':'middle'});g.append(t);g.onclick=()=>activate(i);g.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();activate(i)}};g.ondragover=e=>{e.preventDefault();g.classList.add('over')};g.ondragleave=()=>g.classList.remove('over');g.ondrop=e=>{e.preventDefault();g.classList.remove('over');const id=Number(e.dataTransfer.getData('text/plain'));if(Number.isInteger(id)&&id>=0&&id<parts.length)put(id,i)};$('slots').append(g)});
+function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+function bank(){const order=shuffle(parts.map((_,i)=>i));$('labels').replaceChildren(...order.map(id=>{const b=document.createElement('button');b.className='label';b.draggable=true;b.dataset.id=id;b.innerHTML='<span class="grip" aria-hidden="true">⠿</span><span></span>';b.lastChild.textContent=parts[id].name;b.onclick=()=>{if(placed.includes(id))return;selected=selected===id?null:id;paint()};b.ondragstart=e=>{if(placed.includes(id)){e.preventDefault();return}selected=id;e.dataTransfer.setData('text/plain',String(id));e.dataTransfer.effectAllowed='move';paint()};return b}))}
+function invalidate(){checked=false;revealed=false;$('review').hidden=true}
+function put(id,i){if(placed.includes(id))return;placed[i]=id;selected=null;invalidate();paint();say(`${parts[id].name} placed in blank ${i+1}.`)}
+function activate(i){if(selected!==null){put(selected,i)}else if(placed[i]!==null){const name=parts[placed[i]].name;placed[i]=null;invalidate();paint();say(`${name} returned to the label bank.`)}else{say(`Blank ${i+1} selected. Choose a label in the bank, then click this blank.`)}}
+function paint(){document.querySelectorAll('.label').forEach(b=>{const id=Number(b.dataset.id);b.disabled=placed.includes(id);b.classList.toggle('used',b.disabled);b.classList.toggle('selected',selected===id);b.setAttribute('aria-pressed',selected===id?'true':'false')});document.querySelectorAll('.slot').forEach((g,i)=>{const id=placed[i];g.classList.remove('filled','correct','incorrect');if(id!==null)g.classList.add(checked?(id===i?'correct':'incorrect'):'filled');g.querySelector('text').textContent=id===null?String(i+1):parts[id].name;g.setAttribute('aria-label',`Blank ${i+1}: ${id===null?'empty':parts[id].name}${checked&&id!==null?(id===i?', correct':', incorrect'):''}`)});const n=placed.filter(x=>x!==null).length;$('placed').textContent=checked?`${placed.filter((id,i)=>id===i).length} / 11`:`${n} / 11`;$('scoreText').textContent=checked?(revealed?'answers shown':'correct'):'labels placed';$('selectedInfo').textContent=selected===null?'Choose a label, then click a blank.':`Selected: ${parts[selected].name}`}
+function say(s){$('message').textContent=s}
+$('check').onclick=()=>{checked=true;revealed=false;paint();const n=placed.filter((id,i)=>id===i).length,empty=placed.filter(id=>id===null).length;say(n===11?'Perfect! All 11 structures are correctly labeled.':`${n} of 11 correct. Green = correct. Red = try again.${empty?` ${empty} blank${empty===1?' is':'s are'} still empty.`:''} Click a filled blank to remove its label, or use Clear incorrect.`);if(n===11)showReview()};
+$('clearWrong').onclick=()=>{if(!checked){say('Check your answers first to identify incorrect labels.');return}placed=placed.map((id,i)=>id===i?id:null);selected=null;invalidate();paint();say('Correct labels kept. Try placing the remaining labels again.')};
+function showReview(){$('reviewgrid').replaceChildren(...parts.map(p=>{const e=document.createElement('p');const b=document.createElement('b');b.textContent=p.name;e.append(b,document.createTextNode(p.description));return e}));$('review').hidden=false}
+$('show').onclick=()=>{placed=parts.map((_,i)=>i);selected=null;checked=true;revealed=true;paint();showReview();say('Answer key shown. Select Start over to practice without the answers.')};
+$('reset').onclick=()=>{placed=Array(11).fill(null);selected=null;invalidate();bank();paint();say('Fresh start. The labels have been shuffled. Match all 11 structures.')};bank();paint();
+</script></body></html>
